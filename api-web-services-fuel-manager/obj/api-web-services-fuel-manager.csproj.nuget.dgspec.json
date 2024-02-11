@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj": {}
+    "C:\\Users\\geral\\Documents\\Github\\api-web-services-fuel-manager\\api-web-services-fuel-manager\\api-web-services-fuel-manager.csproj": {}
   },
   "projects": {
-    "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj": {
+    "C:\\Users\\geral\\Documents\\Github\\api-web-services-fuel-manager\\api-web-services-fuel-manager\\api-web-services-fuel-manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj",
+        "projectUniqueName": "C:\\Users\\geral\\Documents\\Github\\api-web-services-fuel-manager\\api-web-services-fuel-manager\\api-web-services-fuel-manager.csproj",
         "projectName": "api-web-services-fuel-manager",
-        "projectPath": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj",
-        "packagesPath": "/home/geraldohomero/.nuget/packages/",
-        "outputPath": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/obj/",
+        "projectPath": "C:\\Users\\geral\\Documents\\Github\\api-web-services-fuel-manager\\api-web-services-fuel-manager\\api-web-services-fuel-manager.csproj",
+        "packagesPath": "C:\\Users\\geral\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\geral\\Documents\\Github\\api-web-services-fuel-manager\\api-web-services-fuel-manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/geraldohomero/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\geral\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.126/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

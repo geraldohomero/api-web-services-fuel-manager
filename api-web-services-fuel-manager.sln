@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-web-services-fuel-manager", "api-web-services-fuel-manager\api-web-services-fuel-manager.csproj", "{B235038F-73F4-4F6C-A901-438ABBFCDDEC}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-web-services-fuel-manager", "api-web-services-fuel-manager\api-web-services-fuel-manager.csproj", "{F9B357C2-81A7-400A-B1D0-7EDEE7241596}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B235038F-73F4-4F6C-A901-438ABBFCDDEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B235038F-73F4-4F6C-A901-438ABBFCDDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B235038F-73F4-4F6C-A901-438ABBFCDDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B235038F-73F4-4F6C-A901-438ABBFCDDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9B357C2-81A7-400A-B1D0-7EDEE7241596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9B357C2-81A7-400A-B1D0-7EDEE7241596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9B357C2-81A7-400A-B1D0-7EDEE7241596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9B357C2-81A7-400A-B1D0-7EDEE7241596}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F19F9542-56EB-47AA-9559-AEC65720D06D}
 	EndGlobalSection
 EndGlobal
