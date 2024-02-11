@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("api-web-services-fuel-manager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e677ad8a21111f5fdeb377b17c38a9a150a26c7f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+083b5a044c8a483f09bf10b7b930008e2f4739e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("api-web-services-fuel-manager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("api-web-services-fuel-manager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
