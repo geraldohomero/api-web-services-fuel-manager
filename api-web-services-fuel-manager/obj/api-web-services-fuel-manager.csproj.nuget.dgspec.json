@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj": {}
+  },
+  "projects": {
+    "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj",
+        "projectName": "api-web-services-fuel-manager",
+        "projectPath": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/api-web-services-fuel-manager.csproj",
+        "packagesPath": "/home/geraldohomero/.nuget/packages/",
+        "outputPath": "/home/geraldohomero/Documents/Github/api-web-services-fuel-manager/api-web-services-fuel-manager/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/geraldohomero/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/6.0.126/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
