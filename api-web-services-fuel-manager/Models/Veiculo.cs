@@ -12,6 +12,8 @@ public class Veiculo
     [Required]
     public string Marca { get; set; }
     [Required]
+    public string Modelo { get; set; }
+    [Required]
     public string Placa { get; set; }
     [Required]
     public int AnoFabricacao { get; set; }

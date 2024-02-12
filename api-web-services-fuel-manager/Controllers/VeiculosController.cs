@@ -30,5 +30,31 @@ namespace api_web_services_fuel_manager.Controllers
             var model = await _context.Veiculos.ToListAsync();
             return Ok(model);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(Veiculo model)
+        {
+            // int deixa um valor padrão de 0, diferente de strings que é "null", por isso as requisições serão aceitas caso seja int
+            if(model.AnoFabricacao <= 0 || model.AnoModelo <= 0)
+            {
+                return BadRequest(new { message = "Ano de Fabricação e Modelo são obrigatórios e devem ser maior que ZERO" });
+            }
+            _context.Veiculos.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.Id }, model);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> GetById(int id)
+        {
+            var model = await _context.Veiculos
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (model == null) NotFound();
+
+            return Ok(model);
+        }
+
     }
 }
