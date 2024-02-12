@@ -56,5 +56,37 @@ namespace api_web_services_fuel_manager.Controllers
             return Ok(model);
         }
 
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, Veiculo model)
+        {
+            if (id != model.Id) return BadRequest(); // se o id for diferente
+
+            // consulta o banco de dados
+            var modeloDb = await _context.Veiculos.AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (modeloDb == null) return NotFound();
+
+            _context.Veiculos.Update(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var model = await _context.Veiculos
+                .FindAsync(id);
+
+            if (model == null) NotFound();
+
+            _context.Veiculos.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+           
+        }
     }
 }
