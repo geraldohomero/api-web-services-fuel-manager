@@ -5,7 +5,7 @@ namespace api_web_services_fuel_manager.Models;
 
 //da nome para tabelas
 [Table("Consumos")]
-public class Consumo
+public class Consumo : LinksHATEOS
 {
     [Key]
     public int Id { get; set; }
