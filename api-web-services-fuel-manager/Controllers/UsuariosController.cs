@@ -33,12 +33,23 @@ namespace api_web_services_fuel_manager.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(Usuario model)
+        public async Task<ActionResult> Create(UsuarioDto model) // Dto somente para criar o usuário
         {
-            _context.Usuarios.Add(model);
+
+            Usuario novo = new Usuario()
+            {
+                Nome = model.Nome,
+                Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
+                Perfil = model.Perfil
+            };
+
+           // model.Password = BCrypt.Net.BCrypt.HashPassword(model.Password); 
+           // troca a senha por uma criptograda
+
+            _context.Usuarios.Add(novo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetById", new { id = model.Id }, model);
+            return CreatedAtAction("GetById", new { id = novo.Id }, novo);
         }
 
         [HttpGet("{id}")]
@@ -54,7 +65,7 @@ namespace api_web_services_fuel_manager.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, Usuario model)
+        public async Task<ActionResult> Update(int id, UsuarioDto model)
         {
             if (id != model.Id) return BadRequest(); // se o id for diferente
 
@@ -64,7 +75,11 @@ namespace api_web_services_fuel_manager.Controllers
 
             if (modeloDb == null) return NotFound();
 
-            _context.Usuarios.Update(model);
+            modeloDb.Nome = model.Nome;
+            modeloDb.Password = BCrypt.Net.BCrypt.HashPassword(model.Password);
+            modeloDb.Perfil = model.Perfil;
+
+            _context.Usuarios.Update(modeloDb);
             await _context.SaveChangesAsync();
 
             return NoContent();

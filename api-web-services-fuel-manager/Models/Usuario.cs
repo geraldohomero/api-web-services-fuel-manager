@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 namespace api_web_services_fuel_manager.Models
@@ -12,6 +13,7 @@ namespace api_web_services_fuel_manager.Models
         [Required]
         public string Nome { get; set; }
         [Required]
+        [JsonIgnore] // para ignorar o password e não ser retornardo na API 
         public string Password { get; set; }
         [Required]
         public int Perfil { get; set; }
