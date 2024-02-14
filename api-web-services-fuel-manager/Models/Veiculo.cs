@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace api_web_services_fuel_manager.Models;
 
-//dp nome para as tabelas
+//da nome para as tabelas
 [Table("Veículos")]
 public class Veiculo : LinksHATEOS
 {
@@ -26,4 +26,6 @@ public class Veiculo : LinksHATEOS
     public ICollection<Consumo> Consumos { get; set; }
     // um veiculo possui vários consumos, e um consumo está associado 
     // somente a um veículo
+
+    public ICollection<VeiculoUsuarios> Usuarios { get; set; }
 }
