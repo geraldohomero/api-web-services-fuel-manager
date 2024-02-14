@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace api_web_services_fuel_manager.Models
 {
     [Table("Usuários")]
-    public class Usuario
+    public class Usuario :LinksHATEOS
     {
         [Key]
         public int Id { get; set; }
