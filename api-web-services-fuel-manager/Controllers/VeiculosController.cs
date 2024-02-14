@@ -49,6 +49,7 @@ namespace api_web_services_fuel_manager.Controllers
         public async Task<ActionResult> GetById(int id)
         {
             var model = await _context.Veiculos
+                .Include(t => t.Usuarios).ThenInclude(t => t.Usuario) // adiciona ao relacionamento as informações do usuario
                 .Include(t => t.Consumos)
                 .FirstOrDefaultAsync(c => c.Id == id);
 
@@ -96,6 +97,33 @@ namespace api_web_services_fuel_manager.Controllers
             model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
             model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
             model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "Delete"));
+        }
+
+        // Adicionar e remover usuário a um determinado veículo 
+        [HttpPost("{id}/usuarios")]
+        public async Task<ActionResult> AddUsuarioAoVeiculo(int id, VeiculoUsuarios model)
+        {
+            if (id != model.VeiculoId) return BadRequest();
+
+            _context.VeiculosUsuarios.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetById", new { id = model.VeiculoId }, model);
+        }
+
+        [HttpDelete("{id}/usuarios/{usuarioId}")]
+        public async Task<ActionResult> DeleteUsuarioDoVeiculo(int id, int usuarioId)
+        {
+            var model = await _context.VeiculosUsuarios
+                .Where(c => c.VeiculoId == id && c.UsuarioId == usuarioId)
+                .FirstOrDefaultAsync();
+
+            if (model == null) return NotFound();
+
+            _context.VeiculosUsuarios.Remove(model);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 
