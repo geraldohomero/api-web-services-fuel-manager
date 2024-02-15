@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace api_web_services_fuel_manager.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrador")] // ou usar virgula "Administrador, Usuario" para mais Roles
     [Route("api/[controller]")] //rota de acesso para a api [controller] igual a usuarios
     [ApiController]
     public class UsuariosController : ControllerBase
