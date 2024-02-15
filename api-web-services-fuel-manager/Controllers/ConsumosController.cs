@@ -1,10 +1,12 @@
 ﻿using api_web_services_fuel_manager.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace api_web_services_fuel_manager.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")] //rota de acesso para a api [controller] igual a consumos
     [ApiController]
     public class ConsumosController : ControllerBase

@@ -1,11 +1,18 @@
-﻿using api_web_services_fuel_manager.Models;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using api_web_services_fuel_manager.Models;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.IdentityModel.Tokens;
 
 namespace api_web_services_fuel_manager.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")] //rota de acesso para a api [controller] igual a usuarios
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -43,8 +50,8 @@ namespace api_web_services_fuel_manager.Controllers
                 Perfil = model.Perfil
             };
 
-           // model.Password = BCrypt.Net.BCrypt.HashPassword(model.Password); 
-           // troca a senha por uma criptograda
+            // model.Password = BCrypt.Net.BCrypt.HashPassword(model.Password); 
+            // troca a senha por uma criptograda
 
             _context.Usuarios.Add(novo);
             await _context.SaveChangesAsync();
@@ -92,13 +99,49 @@ namespace api_web_services_fuel_manager.Controllers
             var model = await _context.Usuarios
                 .FindAsync(id);
 
-            if (model == null) return NotFound();
+            if (model == null)
+                return NotFound();
 
             _context.Usuarios.Remove(model);
             await _context.SaveChangesAsync();
 
             return NoContent();
 
+        }
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<ActionResult> Authenticate(AuthenticateDto model)
+        {
+            var usuarioDb = await _context.Usuarios
+                .FindAsync(model.Id);
+
+            if (usuarioDb == null || !BCrypt.Net.BCrypt.Verify(model.Password, usuarioDb.Password))
+                return Unauthorized();
+
+            var jwt = GenerateJwtToken(usuarioDb);
+
+            return Ok(new { jwtToken = jwt });
+        }
+
+
+        private string GenerateJwtToken(Usuario model)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes("8uijJhsuh7yYtsyhd87ujJushJ89Ji8s"); 
+            var claims = new ClaimsIdentity(new Claim[]
+            {
+            new Claim(ClaimTypes.NameIdentifier, model.Id.ToString()),
+            new Claim(ClaimTypes.Role, model.Perfil.ToString())
+            });
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = claims,
+                Expires = DateTime.UtcNow.AddHours(8),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), 
+                SecurityAlgorithms.HmacSha256Signature),
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
 
         private void GerarLinks(Usuario model)
